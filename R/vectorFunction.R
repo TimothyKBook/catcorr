@@ -34,9 +34,12 @@ find_corr_vec <- function(x, y, type = "b", bias_correction = TRUE)
 
     r_tilde <- r - (r - 1)^2 / (n - 1)
     c_tilde <- c - (c - 1)^2 / (n - 1)
-  } else {
-    chi_obj <- chisq.test(x, y)
   }
+
+  suppressWarnings({
+    chi_obj <- chisq.test(x, y)
+  })
+
 
 
   sol <- list()

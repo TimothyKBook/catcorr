@@ -3,15 +3,17 @@
 #' Produce metrics of correlation among categorical variables.
 #'
 #' @param x Either a vector or data.frame to analyze.
-#' @param y If x is a vector, the `y` is the vector to compare it to.
+#' @param y If \code{x} is a vector, the \code{y} is the vector to compare it to.
 #' @param bias_correction Logical, if TRUE (default), use the bias correction in
 #' Cramer's V
-#' @param type Which statistics to produce.  Options are 'tschuprow', 'tschu',
-#' 't' for Tschuprow's T statistic, 'cramer', 'c', 'v' for Cramer's V statistic
-#' and p-values, and 'both' or 'b' for both options.
+#' @param type Which statistics to produce.  Options are \code{'tschuprow'},
+#' \code{'tschu'}, \code{'t'} for Tschuprow's T statistic, \code{'cramer'},
+#' \code{'c'}, \code{'v'} for Cramer's V statistic and p-values, and
+#' \code{'both'} or \code{'b'} for both options.
 #'
 #' @return Cramer's V (\code{cramer_V}), Tschuprow's T (\code{tschu_T}), and/or
 #' p-value(s) (\code{pval}).
+#'
 #' @export
 catCorr <- function(x = NULL, y = NULL,
                     bias_correction = TRUE,
@@ -19,7 +21,7 @@ catCorr <- function(x = NULL, y = NULL,
 {
 
   # TODO: Vectorize matrix computation
-  # TODO: Supress chi-sq warnings
+  # TODO: Insert row/column names on matrix output
   if (length(x) > 0 & !is.null(y))
   {
     output <- find_corr_vec(x, y, type = type, bias_correction = bias_correction)
