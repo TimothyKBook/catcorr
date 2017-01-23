@@ -36,11 +36,15 @@ find_corr_df <- function(x, type = "b", bias_correction = TRUE)
   sol <- list()
   if (do_V)
   {
+    colnames(V_mat) <- rownames(V_mat) <- colnames(x)
+    colnames(P_mat) <- rownames(P_mat) <- colnames(x)
+
     sol$cramer_V <- V_mat
     sol$pval <- P_mat
   }
   if (do_T)
   {
+    colnames(T_mat) <- rownames(T_mat) <- colnames(x)
     sol$tschu_T <- T_mat
   }
 

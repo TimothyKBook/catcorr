@@ -21,7 +21,6 @@ catCorr <- function(x = NULL, y = NULL,
 {
 
   # TODO: Vectorize matrix computation
-  # TODO: Insert row/column names on matrix output
   if (length(x) > 0 & !is.null(y))
   {
     output <- find_corr_vec(x, y, type = type, bias_correction = bias_correction)

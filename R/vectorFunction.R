@@ -40,8 +40,6 @@ find_corr_vec <- function(x, y, type = "b", bias_correction = TRUE)
     chi_obj <- chisq.test(x, y)
   })
 
-
-
   sol <- list()
 
   if (do_V)
