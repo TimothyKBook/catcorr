@@ -1,0 +1,39 @@
+---
+title: "Categorical Correlation"
+author: "Timothy K. Book"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r echo = FALSE}
+library(catcorr)
+```
+
+## The catCorr Package
+This package contains the `catCorr` function, which allows users to construct
+scalars and matrices based off of two statistics: Cramer's V statistic, and
+Tschuprow's T statistic.  The p-value associated with Cramer's V (related to the
+$\chi^2$ statistic) is also output.
+
+First, some data:
+```{r}
+set.seed(1234)
+
+n <- 30
+w <- rep(c('D', 'E', 'D'), each = 10)
+x <- sample(c('A', 'B'), n, replace = TRUE)
+y <- sample(c('A', 'B', 'C'), n, replace = TRUE)
+z <- c(rep('D', 15), rep('E', 15))
+
+df <- data.frame(w, x, y, z)
+```
+
+The `catCorr` function has two implementations via inputting either a 
+`data.frame` or two vectors.
+
+```{r}
+catCorr(x, y)
+catCorr(df)
+```
